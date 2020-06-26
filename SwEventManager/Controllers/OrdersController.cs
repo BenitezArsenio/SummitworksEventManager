@@ -51,10 +51,16 @@ namespace SwEventManager.Controllers
         }
 
         // GET: Orders/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
+            //Order order = db.Orders.Find(id);
             ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName");
             ViewBag.UserID = new SelectList(db.Users, "UserId", "Firstname");
+            ViewData["EventID"] = id;
+            ViewData["EventName"] = db.Events.Find(id).EventName.ToString();
+            Console.WriteLine(ViewData["EventName"]);
+           
+            String a = ViewData["EventName"].ToString();
             return View();
         }
 

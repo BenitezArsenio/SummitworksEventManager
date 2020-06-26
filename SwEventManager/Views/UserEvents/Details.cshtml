@@ -85,12 +85,19 @@
 </div>
 <br />
 <p>
-    @{int id = Model.EventID; }
+    @{int idEvent = Model.EventID; }
 
     @if (Model.OpenForRegistration)
     {
-        @Html.ActionLink("Register", "Create", id);
-        <a> | </a>
+      
+
+        <a href="@Url.Action("Create","Orders",new { id = idEvent })">
+            <Label>
+                Register
+            </Label>
+        </a>
+
     }
+    <br />
     @Html.ActionLink("Back to Events", "Index", "UserEvents")
 </p>

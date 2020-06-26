@@ -48,8 +48,14 @@
     <td>@item.EndTime.ToString()</td>
 
 
-    <td>@Html.ActionLink("Purchase", "Create", new { id = item.EventID })</td>
-  
+
+    <td><a href="@Url.Action("Create","Orders",new { id = item.EventID })">
+    <Label>
+        Purchase
+    </Label>
+</a></td>
+    
+
 
 </tr>
     }
